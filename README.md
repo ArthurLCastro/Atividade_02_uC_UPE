@@ -47,6 +47,8 @@ Resistores foram dimensionados para limitação de corrente nos LEDs.
 
 - [ ] Definir figuras que serão apresentadas
 - [ ] Adicionar controle por botão
+- [ ] Implementar pisca
+- [ ] Implementar rolagem
 - [ ] Substituir alguns dos LEDs por de outra cor (solicitado o uso de LEDs vermelhos, verdes, amarelos e azuis)
 - [ ] Atualizar firmware para uso com novas figuras e botões
 - [ ] Desenvolver biblioteca para uso da Matriz de LEDs

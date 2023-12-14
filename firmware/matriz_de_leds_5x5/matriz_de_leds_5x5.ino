@@ -83,102 +83,24 @@ void resetar_matriz() {
   }
 }
 
-void atualiza_matriz_L1() {
-  // Configurando catodos dos LEDs (colunas)
-  digitalWrite(matrix_pins[1][0], matriz_buffer[0][0]);   // Configurando valor 00 do buffer no pino 7 (invertido pois é o anodo)
-  digitalWrite(matrix_pins[1][1], matriz_buffer[0][1]);   // Configurando valor 01 do buffer no pino 8 (invertido pois é o anodo)
-  digitalWrite(matrix_pins[1][2], matriz_buffer[0][2]);   // Configurando valor 02 do buffer no pino 8 (invertido pois é o anodo)
-  digitalWrite(matrix_pins[1][3], matriz_buffer[0][3]);
-  digitalWrite(matrix_pins[1][4], matriz_buffer[0][4]);
-  
-  // Habilita linha (em nivel logico baixo)
-  digitalWrite(matrix_pins[0][0], LOW);
+void atualiza_matriz() {
+  /*
+    Funcionamento:
+      Configura os niveis logicos nos anodos de todos os LEDs de uma linha simultaneamente, habilita apenas
+      esta linha (catodos comum), espera um tempo, desabilita a linha e faz o mesmo para a proxima linha
+  */
 
-  // Aguarda tempo maximo por linha para 24 Hz
-  delay(TEMPO_POR_LINHA_MS);
+  for (int i=0; i<=4; i++) {
+    // Controle das colunas
+    for (int j=0; j<=4; j++) {
+      digitalWrite(matrix_pins[1][j], matriz_buffer[i][j]);   // Configurando valores do buffer nos anodos dos LEDs (colunas)
+    }
 
-  // Desabilita linha (em nivel logico alto)
-  digitalWrite(matrix_pins[0][0], HIGH);
-}
-
-void atualiza_matriz_L2() {
-  // Configurando catodos dos LEDs (colunas)
-  digitalWrite(matrix_pins[1][0], matriz_buffer[1][0]);   // Configurando valor 10 do buffer no pino 7 (invertido pois é o anodo)
-  digitalWrite(matrix_pins[1][1], matriz_buffer[1][1]);   // Configurando valor 11 do buffer no pino 8 (invertido pois é o anodo)
-  digitalWrite(matrix_pins[1][2], matriz_buffer[1][2]);   // Configurando valor 12 do buffer no pino 8 (invertido pois é o anodo)
-  digitalWrite(matrix_pins[1][3], matriz_buffer[1][3]);
-  digitalWrite(matrix_pins[1][4], matriz_buffer[1][4]);
-  
-  // Habilita linha (em nivel logico baixo)
-  digitalWrite(matrix_pins[0][1], LOW);
-
-  // Aguarda tempo maximo por linha para 24 Hz
-  delay(TEMPO_POR_LINHA_MS);
-
-  // Desabilita linha (em nivel logico alto)
-  digitalWrite(matrix_pins[0][1], HIGH);
-}
-
-void atualiza_matriz_L3() {
-  // Configurando catodos dos LEDs (colunas)
-  digitalWrite(matrix_pins[1][0], matriz_buffer[2][0]);   // Configurando valor 10 do buffer no pino 7 (invertido pois é o anodo)
-  digitalWrite(matrix_pins[1][1], matriz_buffer[2][1]);   // Configurando valor 11 do buffer no pino 8 (invertido pois é o anodo)
-  digitalWrite(matrix_pins[1][2], matriz_buffer[2][2]);   // Configurando valor 12 do buffer no pino 8 (invertido pois é o anodo)
-  digitalWrite(matrix_pins[1][3], matriz_buffer[2][3]);
-  digitalWrite(matrix_pins[1][4], matriz_buffer[2][4]);
-  
-  // Habilita linha (em nivel logico baixo)
-  digitalWrite(matrix_pins[0][2], LOW);
-
-  // Aguarda tempo maximo por linha para 24 Hz
-  delay(TEMPO_POR_LINHA_MS);
-
-  // Desabilita linha (em nivel logico alto)
-  digitalWrite(matrix_pins[0][2], HIGH);
-}
-
-void atualiza_matriz_L4() {
-  // Configurando catodos dos LEDs (colunas)
-  digitalWrite(matrix_pins[1][0], matriz_buffer[3][0]);   // Configurando valor 10 do buffer no pino 7 (invertido pois é o anodo)
-  digitalWrite(matrix_pins[1][1], matriz_buffer[3][1]);   // Configurando valor 11 do buffer no pino 8 (invertido pois é o anodo)
-  digitalWrite(matrix_pins[1][2], matriz_buffer[3][2]);   // Configurando valor 12 do buffer no pino 8 (invertido pois é o anodo)
-  digitalWrite(matrix_pins[1][3], matriz_buffer[3][3]);
-  digitalWrite(matrix_pins[1][4], matriz_buffer[3][4]);
-  
-  // Habilita linha (em nivel logico baixo)
-  digitalWrite(matrix_pins[0][3], LOW);
-
-  // Aguarda tempo maximo por linha para 24 Hz
-  delay(TEMPO_POR_LINHA_MS);
-
-  // Desabilita linha (em nivel logico alto)
-  digitalWrite(matrix_pins[0][3], HIGH);
-}
-
-void atualiza_matriz_L5() {
-  // Configurando catodos dos LEDs (colunas)
-  digitalWrite(matrix_pins[1][0], matriz_buffer[4][0]);   // Configurando valor 10 do buffer no pino 7 (invertido pois é o anodo)
-  digitalWrite(matrix_pins[1][1], matriz_buffer[4][1]);   // Configurando valor 11 do buffer no pino 8 (invertido pois é o anodo)
-  digitalWrite(matrix_pins[1][2], matriz_buffer[4][2]);   // Configurando valor 12 do buffer no pino 8 (invertido pois é o anodo)
-  digitalWrite(matrix_pins[1][3], matriz_buffer[4][3]);
-  digitalWrite(matrix_pins[1][4], matriz_buffer[4][4]);
-  
-  // Habilita linha (em nivel logico baixo)
-  digitalWrite(matrix_pins[0][4], LOW);
-
-  // Aguarda tempo maximo por linha para 24 Hz
-  delay(TEMPO_POR_LINHA_MS);
-
-  // Desabilita linha (em nivel logico alto)
-  digitalWrite(matrix_pins[0][4], HIGH);
-}
-
-void atualiza_matriz(){
-  atualiza_matriz_L1();
-  atualiza_matriz_L2();
-  atualiza_matriz_L3();
-  atualiza_matriz_L4();
-  atualiza_matriz_L5();
+    // Controle das linhas
+    digitalWrite(matrix_pins[0][i], LOW);    // Habilita linha (em nivel logico baixo)
+    delay(TEMPO_POR_LINHA_MS);               // Gasta tempo
+    digitalWrite(matrix_pins[0][i], HIGH);   // Desabilita linha (em nivel logico alto)
+  }
 }
 
 // ---------- Funcoes para controle das figuras ----------

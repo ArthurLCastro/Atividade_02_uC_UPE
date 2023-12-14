@@ -2,6 +2,8 @@
 // Arthur L. Castro
 // Dezembro de 2023
 
+#include "figuras.h"
+
 // Macros para DEBUG
 // #define DEBUG_MATRIZ_BUFFER
 
@@ -33,33 +35,9 @@ byte matriz_buffer[5][5] = {
   {0,0,0,0,0},
 };
 
-// ---------- Declaracao de variaveis para figuras ----------
+// ---------- Declaracao de variaveis para animacoes ----------
 unsigned long previousTime=0;
 unsigned int frame_idx=0;
-
-byte quadrado_5x5[5][5] = {
-  {1,1,1,1,1},
-  {1,0,0,0,1},
-  {1,0,0,0,1},
-  {1,0,0,0,1},
-  {1,1,1,1,1},
-};
-
-byte quadrado_3x3[5][5] = {
-  {0,0,0,0,0},
-  {0,1,1,1,0},
-  {0,1,0,1,0},
-  {0,1,1,1,0},
-  {0,0,0,0,0},
-};
-
-byte ponto_central[5][5] = {
-  {0,0,0,0,0},
-  {0,0,0,0,0},
-  {0,0,1,0,0},
-  {0,0,0,0,0},
-  {0,0,0,0,0},
-};
 
 // ---------- Funcoes para matriz de LEDs ----------
 void config_matriz() {
@@ -123,16 +101,8 @@ void seleciona_figura(byte figura[5][5]) {
   }
 }
 
-// ---------- Configuracoes de inicializacao ----------
-void setup() {
-  config_matriz();    // Definindo todos os pinos da matriz como saidas
-  resetar_matriz();   // Apagando todos os LEDs da matriz
-
-  Serial.begin(9600);
-}
-
-// ---------- Loop infinito ----------
-void loop() {
+// ---------- Animacoes ----------
+void animacao_quadrados() {
   switch (frame_idx) {
     case 0:
       seleciona_figura(ponto_central);   // Atualiza 'matriz_buffer'
@@ -157,6 +127,96 @@ void loop() {
       frame_idx++;
     }
   }
+}
+
+void animacao_sino_piscando() {
+  switch (frame_idx) {
+    case 0:
+      seleciona_figura(sino);   // Atualiza 'matriz_buffer'
+      break;
+    case 1:
+      seleciona_figura(vazio);
+      break;
+  }
+
+  if (millis() - previousTime >= INTERVALO_ENTRE_FIGURAS_MS){
+    previousTime = millis();
+    
+    if (frame_idx >= 1) {
+      frame_idx = 0;
+    } else {
+      frame_idx++;
+    }
+  }
+}
+
+void animacao_feliz_natal() {
+  switch (frame_idx) {
+    case 0:
+      seleciona_figura(letra_F);   // Atualiza 'matriz_buffer'
+      break;
+    case 1:
+      seleciona_figura(letra_E);   // Atualiza 'matriz_buffer'
+      break;
+    case 2:
+      seleciona_figura(letra_L);   // Atualiza 'matriz_buffer'
+      break;
+    case 3:
+      seleciona_figura(letra_I);   // Atualiza 'matriz_buffer'
+      break;
+    case 4:
+      seleciona_figura(letra_Z);   // Atualiza 'matriz_buffer'
+      break;
+    case 5:
+      seleciona_figura(vazio);   // Atualiza 'matriz_buffer'
+      break;
+    case 6:
+      seleciona_figura(letra_N);   // Atualiza 'matriz_buffer'
+      break;
+    case 7:
+      seleciona_figura(letra_A);   // Atualiza 'matriz_buffer'
+      break;
+    case 8:
+      seleciona_figura(letra_T);   // Atualiza 'matriz_buffer'
+      break;
+    case 9:
+      seleciona_figura(letra_A);   // Atualiza 'matriz_buffer'
+      break;
+    case 10:
+      seleciona_figura(letra_L);   // Atualiza 'matriz_buffer'
+      break;
+    case 11:
+      seleciona_figura(ponto_de_exclamacao);   // Atualiza 'matriz_buffer'
+      break;
+    case 12:
+      seleciona_figura(vazio);   // Atualiza 'matriz_buffer'
+      break;
+  }
+
+  if (millis() - previousTime >= INTERVALO_ENTRE_FIGURAS_MS + 500){
+    previousTime = millis();
+    
+    if (frame_idx >= 12) {
+      frame_idx = 0;
+    } else {
+      frame_idx++;
+    }
+  }
+}
+
+// ---------- Configuracoes de inicializacao ----------
+void setup() {
+  config_matriz();    // Definindo todos os pinos da matriz como saidas
+  resetar_matriz();   // Apagando todos os LEDs da matriz
+
+  Serial.begin(9600);
+}
+
+// ---------- Loop infinito ----------
+void loop() {
+  // animacao_quadrados();
+  // animacao_sino_piscando();
+  animacao_feliz_natal();
 
   atualiza_matriz();
 }

@@ -19,24 +19,36 @@ O hardware consiste em uma matriz de LEDs 5x5, onde as linhas da matriz tem os c
 
 Resistores foram dimensionados para limitação de corrente nos LEDs.
 
-![Hardware](/hardware/tinkercad/hardware_tinkercad.png "Hardware - Matriz de LEDs 5x5 no Arduino Uno")
+![Hardware](/hardware/tinkercad/hardware_tinkercad_02.png "Hardware - Matriz de LEDs 5x5 no Arduino Uno")
 
 [Link para Projeto no Tinkercad](https://www.tinkercad.com/things/gU8OBjhMp1a-atividade-02-uc-20232)
 
 ### **Lista de Componentes:**
 <!-- Lista de componentes necessários, com as respectivas especificações. -->
 
-| Quantidade |       Componente       |
-|   :---:    |   :---                 |
-|     1      | Arduino UNO R3         |
-|     25     | LEDs Vermelhos 2V 20mA |
-|     5      | Resistores de 220Ω     |
-|     10     | Jumpers                |
+| Quantidade |       Componente        |
+|   :---:    |   :---                  |
+|     1      | Arduino UNO R3          |
+|     5      | LEDs Vermelhos 2V 20mA  |
+|     5      | LEDs Verdes 2V 20mA     |
+|     5      | LEDs Amarelos 2V 20mA   |
+|     5      | LEDs Azuis 2V 20mA      |
+|     5      | LEDs Laranjas 2V 20mA   |
+|     5      | Resistores de 220Ω 1/4W |
+|     1      | Kit de jumpers diversos |
 
 ## **Configurações e Características**:
-<!-- Informar as diferentes configurações e características do painel de iluminação Natalina decorativa. -->
+A matriz de LEDs apresenta animações (conjunto de diversas imagens em sequência) com temas natalinos que podem ser selecionadas, alternando entre os diferentes modos, ao clicar no botão.
+
+- Animação 01: Sino badalando
+- Animação 02: Estrela cintilando
+- Animação 03: Frase "Feliz Natal!"
 
 ## **Firmware**:
+Faça upload do [firmware_decoracao_de_natal.ino](/firmware/firmware_decoracao_de_natal/firmware_decoracao_de_natal.ino) para o microcontrolador.
+
+> *Observação:* </br>Este projeto faz uso da biblioteca **ALC_LED_Matrix** desenvolvida durante a implementacao do projeto e  encontra-se disponivel para download em https://github.com/ArthurLCastro/ALC_LED_Matrix
+.
 
 ## **Fotografias**:
 
@@ -45,11 +57,11 @@ Resistores foram dimensionados para limitação de corrente nos LEDs.
 
 ## **A fazer**:
 
-- [ ] Definir figuras que serão apresentadas
-- [ ] Adicionar controle por botão
+- [X] Definir figuras que serão apresentadas
+- [X] Adicionar controle por botão
 - [ ] Implementar pisca
 - [ ] Implementar rolagem
-- [ ] Substituir alguns dos LEDs por de outra cor (solicitado o uso de LEDs vermelhos, verdes, amarelos e azuis)
-- [ ] Atualizar firmware para uso com novas figuras e botões
-- [ ] Desenvolver biblioteca para uso da Matriz de LEDs
+- [X] Substituir alguns dos LEDs por de outra cor (solicitado o uso de LEDs vermelhos, verdes, amarelos e azuis)
+- [X] Atualizar firmware para uso com novas figuras e botões
+- [X] Desenvolver biblioteca para uso da Matriz de LEDs
 - [ ] Gravar vídeo demonstrativo

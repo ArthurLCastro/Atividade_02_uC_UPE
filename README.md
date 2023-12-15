@@ -62,9 +62,21 @@ Faça upload do [firmware_decoracao_de_natal.ino](/firmware/firmware_decoracao_d
 
 - [Vídeo Demonstrativo](/fotos_e_videos/videos/video_demonstrativo.mp4)
 
+    <video width="400" controls>
+    <source src="/fotos_e_videos/videos/video_demonstrativo.mp4" type="video/mp4">
+    </video>
+
 - [Vídeo - Testando matriz](/fotos_e_videos/videos/video_testando_matriz.mp4)
 
+    <video width="400" controls>
+    <source src="/fotos_e_videos/videos/video_demonstrativo.mp4" type="video/mp4">
+    </video>
+
 - [Vídeo - Animação Quadrados](/fotos_e_videos/videos/video_animacao_quadrados.mp4)
+
+    <video width="400" controls>
+    <source src="/fotos_e_videos/videos/video_demonstrativo.mp4" type="video/mp4">
+    </video>
 
 ## **A fazer**:
 

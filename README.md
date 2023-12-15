@@ -21,7 +21,7 @@ Resistores foram dimensionados para limitação de corrente nos LEDs.
 
 ![Hardware](/hardware/tinkercad/hardware_tinkercad_02.png "Hardware - Matriz de LEDs 5x5 no Arduino Uno")
 
-[Link para Projeto no Tinkercad](https://www.tinkercad.com/things/gU8OBjhMp1a-atividade-02-uc-20232)
+[Link para Projeto no Tinkercad](https://www.tinkercad.com/things/gU8OBjhMp1a-atividade-02-uc-20232-v2?sharecode=IhkAorqFj_hop4MJpGZXsWnfL1JWquQtuNhMrLfkzjY)
 
 ### **Lista de Componentes:**
 <!-- Lista de componentes necessários, com as respectivas especificações. -->
@@ -51,17 +51,30 @@ Faça upload do [firmware_decoracao_de_natal.ino](/firmware/firmware_decoracao_d
 .
 
 ## **Fotografias**:
+![](/fotos_e_videos/fotos/circuito.jpg "Circuito")
 
-## **Vídeo demonstrativo**:
+![](/fotos_e_videos/fotos/img_trilhas.jpg "Trilhas")
+
+![](/fotos_e_videos/fotos/letra_A.jpg "Letra A")
+
+## **Vídeos**:
 <!-- Filmagem com a explicação do sistema decorativo de iluminação. -->
+
+- [Vídeo Demonstrativo](/fotos_e_videos/videos/video_demonstrativo.mp4)
+
+- [Vídeo - Testando matriz](/fotos_e_videos/videos/video_testando_matriz.mp4)
+
+- [Vídeo - Animação Quadrados](/fotos_e_videos/videos/video_animacao_quadrados.mp4)
 
 ## **A fazer**:
 
 - [X] Definir figuras que serão apresentadas
 - [X] Adicionar controle por botão
-- [ ] Implementar pisca
-- [ ] Implementar rolagem
+- [ ] Implementar efeito "pisca"
+- [ ] Implementar efeito "rolagem"
+- [ ] Implementar efeito "inverter"
 - [X] Substituir alguns dos LEDs por de outra cor (solicitado o uso de LEDs vermelhos, verdes, amarelos e azuis)
 - [X] Atualizar firmware para uso com novas figuras e botões
 - [X] Desenvolver biblioteca para uso da Matriz de LEDs
-- [ ] Gravar vídeo demonstrativo
+- [X] Gravar vídeos demonstrativos
+- [ ] Gravar vídeo explicando o funcionamento do projeto

@@ -66,7 +66,7 @@ void loop() {
   estado_botao = digitalRead(PIN_BUTTON);
 
   if (!estado_botao) {
-    delay(100);
+    delay(500);
 
     if (modo >= 3) {
       modo = 1;
